@@ -75,7 +75,12 @@ function StudentPanel() {
       console.error(err);
     }
   }
-  //upload file 
+
+
+  //UPLOAD FILE  
+  // const [fileUpload, setFileUpload] = useState(null);
+  // already created in create file ^
+
   const uploadFile = async () => {
     if (!fileUpload) return;
     const filesFolderRef = ref(storage, `projectfiles/${fileUpload.name}`)
@@ -84,14 +89,13 @@ function StudentPanel() {
       // console.("uploaded");
     }
     catch (err) { console.error(err) }
-
   }
 
   //UPDATE DATA
   const [updateField, setUpdateField] = useState('name');
   const [updateValue, setUpdateValue] = useState('');
 
-  const updateStudent = async (id,updateField,updateValue) => {
+  const updateStudent = async (id, updateField, updateValue) => {
     try {
       const studentRef = doc(db, 'student', id);
       const updateData = {
@@ -117,6 +121,12 @@ function StudentPanel() {
     }
     catch (err) { console.err };
   }
+  useEffect(() => {
+    if (currentUser) {
+      getStudentList();
+    }
+  }, [currentUser]);
+
 
   return (
     <div >
@@ -157,6 +167,7 @@ function StudentPanel() {
         )}
 
       </div>
+
       {/* conditional rendering if current user is null then studentContainer Not displayed else shown */}
       {currentUser &&
         <div className="studentContainer">
@@ -177,7 +188,6 @@ function StudentPanel() {
             ))}
           </div>
         </div>
-
       }
     </div>
   );

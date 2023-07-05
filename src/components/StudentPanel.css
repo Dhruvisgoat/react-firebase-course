@@ -5,10 +5,13 @@
   justify-items: center;
 
 }
+
 .studentContainer{
   margin:30px;
   border:3px solid black;
   padding:30px;
+  background-color: #e5e5f7;
+  opacity: 0.8;
 }
 .studentContainer button {
   padding:20px;
@@ -23,11 +26,15 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color:rgb(252, 235, 214);
+
 }
 .studentPanel{
   margin:30px;
   border:3px solid black;
   padding:30px;
+  background-color: #e5e5f7;
+
 }
 .studentPanel input {
   width: 40%;
